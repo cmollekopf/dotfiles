@@ -1,0 +1,42 @@
+[user]
+	email = chrigi_1@fastmail.fm
+	name = Christian Mollekopf
+[gui]
+	spellingdictionary = none
+[url "git://anongit.kde.org/"]
+	insteadOf = kde:
+[url "git@git.kde.org:"]
+	pushInsteadOf = kde:
+[url "https://git.kolab.org/diffusion/"]
+	insteadOf = kolab:
+[url "ssh://git@git.kolab.org/diffusion/"]
+	pushInsteadOf = kolab:
+[color]
+	ui = true
+[push]
+	default = tracking
+[merge]
+	tool = diffconflicts
+[mergetool "gvimdiff3"]
+    cmd = gvim -v -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[commit]
+	template = /home/chrigi/.dotfiles/committemplate
+[core]
+	excludesfile = /home/chrigi/.gitignore
+[alias]
+	lg = log --color --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+    mt = mergetool
+    kdiff3 = mergetool --tool kdiff3
+    vimdiff3 = mergetool --tool gvimdiff3
+    fugitive = mergetool --tool fugitive
+    amend = commit --amend --verbose
+    c = commit --verbose
+[credential]
+	helper = cache --timeout=3600
+[mergetool "fugitive"]
+	cmd = gvim -v -f -c \"Gdiff\" \"$MERGED\"
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+	keepBackup = false
