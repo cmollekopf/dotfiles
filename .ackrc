@@ -1,1 +1,4 @@
-.dotfiles/ackrc
+--type-set=cmake=.cmake,.in
+--type-set=txt=.txt
+--sort-files
+--smart-case
